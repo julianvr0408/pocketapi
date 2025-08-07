@@ -18,7 +18,6 @@ function Captura (){
     });
 
     const searchPokemon = ()=>{
-        // Reset error state
         setErrorMessage('');
 
         const capturedPokemon = JSON.parse(localStorage.getItem('capturedPokemon') || '[]');
@@ -57,7 +56,7 @@ function Captura (){
         if (!isAlreadyCaptured) {
             const newCapturedPokemon = [...capturedPokemon, {
                 ...pokemonData,
-                status: 'capturado',  // Add default status
+                status: 'capturado',  
                 capturedAt: new Date().toISOString()
             }];
             
@@ -100,14 +99,13 @@ function Captura (){
                             
                             <div className='mt-6'>
                                 {isCaptured ? (
-                                    <div className='bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded'>
-                                        <strong>Pokémon capturado ✅</strong>
-                                        <br />
-                                        <small className='text-green-600'>Este Pokémon ya está en tu colección</small>
+                                    <div >
+                                        <p className='text-green-600'>Pokémon capturado </p>
+
                                     </div>
                                 ) : (
                                     <div className='text-center'>
-                                        <p className='text-gray-600 mb-3'>Pokémon pendiente de captura</p>
+                                        <p className='text-gray-600 mb-3'>Pokémon pendiente </p>
                                         <button 
                                             onClick={capturePokemon}
                                             className='bg-red-600 hover:bg-red-700 text-white font-bold py-2 px-6 rounded-lg transition-colors'
